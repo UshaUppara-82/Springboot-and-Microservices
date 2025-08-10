@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="customer" class="com.model.Customer">
+        <property name="sno" value="100"></property>
+        <property name="name" value="Isha"></property>
+        <property name="email" value="isha@gmail.com"></property>
+        
+    </bean>
+    
+    <bean id="address" class="com.model.Address">
+        <property name="doorno" value="100"></property>
+        <property name="streetAddr" value="MG Road"></property>
+        <property name="cityName" value="Hyderabad"></property>
+        
+    </bean>
+    
+
+
+</beans>

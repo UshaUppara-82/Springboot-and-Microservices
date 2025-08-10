@@ -1,0 +1,107 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="greetingService"
+		class="com.mycompany.app.GreetingService" />
+		
+		
+	<bean id="welcomeService" class="com.mycompany.app.WelcomeService">
+		<property name="message" value="Spring Core 6.1"></property>
+	</bean>
+	<bean id="author" class="com.mycompany.app.Author">
+		<property name="authorName" value="Tata Mc Hill" />
+		<property  name="authorLocation" value="USA" />
+	</bean>
+
+	<bean id="book" class="com.mycompany.app.Book" scope="singleton"> 
+		<property name="id" value="9875"></property>
+		<property name="name" value="Spring In Action"></property>
+		<!-- Constructor based injection -->
+		<constructor-arg ref="author"></constructor-arg>
+	</bean>
+
+
+	<bean id="personBean" class="com.mycompany.app.Person" scope="prototype">
+		<property name="name" value="John"></property>
+	</bean>
+	<bean id="address" class="com.mycompany.app.Address">
+		<property name="streetName" value="AAA Street" ></property>
+		<property name="doorName"  value="3G"></property>
+		<property name="location" value="Chennai"></property>
+		<property name="pinCode" value="6000119"></property>
+	</bean>
+	
+	<bean  id="employeeBean" class="com.mycompany.app.Employee" parent="personBean">
+		<property name="employeeNumber" value="1489632"></property>
+		<!-- set- up of property based / setter based injection -->
+		<property name="address" ref="address" />
+	</bean>
+	
+	
+	
+	
+	 <bean id="customer1" class="com.mycompany.app.model.Customer">
+    	<property name="cno" value="101"></property>
+    	<property name="cname" value="XYZ Enterprise"></property>
+    	<property name="orderValue" value="100"></property>
+    </bean>
+        <bean id="customer2" class="com.mycompany.app.model.Customer">
+    	<property name="cno" value="102"></property>
+    	<property name="cname" value="ABC Enterprise"></property>
+    	<property name="orderValue" value="200"></property>
+    </bean>
+    
+    
+    <!-- Creating the bean using the collection -->
+    <bean id="mentor1" class="com.mycompany.app.model.Mentor">
+    	<property name="mid" value="43434"></property>
+    	<property name="nm" value="Jyoti"></property>
+    	<property name="modules">
+    		<list></list>
+    	</property>
+    </bean>
+    
+    <bean id="sms" class="com.mycompany.app.model.SMSNotification">
+    	<property name="mobileNumber" value="782XXXXXXX"></property>
+    </bean>
+    
+    <bean id="email" class="com.mycompany.app.model.EmailNotification">
+    	<property name="emailAddress" value="abc@gmail.com"></property>
+    </bean>
+    
+    
+    <bean id="engine" class="com.mycompany.app.Engine">
+    
+    	<property name="engineNo"  value="789"></property>
+    	<property name="engineModelName" value="SUV"></property>
+    </bean>
+    
+    
+    <bean id="car" class="com.mycompany.app.Car">
+    
+    	<property name="platNo" value="458"></property>
+    	<property name="ownerName" value="Jyoti"></property>
+    	<property name="location" value="XXXX"></property>
+    	
+    	<property name="engine" ref="engine"></property>
+    </bean>
+    
+    <bean id="character" class="com.mycompany.app.model.Character" init-method="init"
+    destroy-method="destroy" >
+    	<property name="id" value="101"></property>
+    	<property name="name" value="Santa"></property>
+    </bean>
+    
+    <bean id="blogDao" class="com.mycompany.app.model.BlogDao" />
+    
+    <bean id="blogService" class="com.mycompany.app.model.BlogService" init-method="init" >
+    	<property name="blogDao" ref="blogDao"></property>
+    </bean>
+    
+    <bean id="writer" class="com.mycompany.app.model.TechnicalWriter" scope="prototype">
+    	
+    </bean>
+</beans>

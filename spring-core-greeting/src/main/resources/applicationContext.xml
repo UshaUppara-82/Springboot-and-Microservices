@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="greetingService"
+		class="com.mycompany.app.GreetingService" />
+	<bean id="welcomeService" class="com.mycompany.app.WelcomeService">
+		<property name="message" value="Spring Core 6.1"></property>
+	</bean>
+
+
+	<bean id="book" class="com.mycompany.app.Book">
+		<property name="id" value="9875"></property>
+		<property name="name" value="Spring In Action"></property>
+	</bean>
+
+</beans>
